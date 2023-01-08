@@ -17,7 +17,7 @@ RVAPPVER="$(grep_prop version "$MODPATH/module.prop")"
 URL="https://www.apkmirror.com/apk/google-inc/youtube/youtube-$(echo -n "$RVAPPVER" | tr "." "-")-release/"
 
 
-if [ ! -d "/data/data/$PKGNAME" ]
+if [ ! -d "/proc/1/root/data/data/$PKGNAME" ]
 then
 	ui_print "- $APPNAME app is not installed"
 	am start -a android.intent.action.VIEW -d "$URL" &>/dev/null
