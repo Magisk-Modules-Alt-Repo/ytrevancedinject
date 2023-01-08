@@ -1,0 +1,7 @@
+id=ytrevancedinject
+name=YouTube ReVanced
+package=com.google.android.youtube
+version=18.01.32
+versionCode=1
+author=HuskyDG
+description=YouTube ReVanced repacked by HuskyDG. Require Magisk Process Monitor tool v2.1+
