@@ -41,6 +41,8 @@ prepareEnterMntNs(){
         STOCKAPPVER=$(dumpsys package $PACKAGE_NAME | grep versionName | cut -d= -f 2 | sed -n '1p')
         RVAPPVER=$(grep_prop version "$MODDIR/module.prop")
         check_version || exit 1
+        W=$(sed -E 's/^description=(\[.*][[:space:]]*)?/description=[ 😋 Dynamic mount is working. ] /g' "$MODDIR/module.prop")
+        echo -n "$W" >"$TMPFILE"
         exit 0
     fi
 
@@ -57,8 +59,6 @@ EnterMntNs(){
         exit 1
     fi
 
-    W=$(sed -E 's/^description=(\[.*][[:space:]]*)?/description=[ 😋 Dynamic mount is working. ] /g' "$MODDIR/module.prop")
-    echo -n "$W" >"$TMPFILE"
     . "$MODDIR/mount.sh"
     exit 1
 }
